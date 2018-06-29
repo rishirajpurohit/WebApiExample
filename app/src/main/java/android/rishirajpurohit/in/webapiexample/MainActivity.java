@@ -1,6 +1,7 @@
 package android.rishirajpurohit.in.webapiexample;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<TaskPOJO> call, Response<TaskPOJO> response) {
                 TaskPOJO mytask = response.body();
                 Toast.makeText(MainActivity.this, "Task is : "+mytask.task_name, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this,Main2Activity.class);
+                i.putExtra("task",mytask);
+                startActivity(i);
                 dialog.hide();
             }
 
